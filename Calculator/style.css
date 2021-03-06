@@ -53,11 +53,13 @@ body {
     width: 50px;
     height: 50px;
     margin: 15px;
+    color: white;
     float: left;
     border-radius: 50%;
     border-width: 0;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 20px;
+    background-color: #537895;
 }
 
 .empty {
