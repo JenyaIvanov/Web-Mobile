@@ -1,0 +1,725 @@
+<html>
+<canvas onclick="showCoords(event)" id="gameCanvas" width="800" height="600"></canvas>
+<title>XANNY&#8482; - SUPERPOWERS PONG</title>
+<script>
+
+// GLOBAL VARIABLES  //
+
+var canvas;
+var canvasContext;
+var ballX = 400;  // INITIAL ball speed Y
+var ballY = 300;
+var fakeBallX = 400; 
+var fakeBallY = 300; // INITIAL ball position X
+var ballSpeedX = 8;  // INITIAL ball speed X
+var ballSpeedY = 3;
+var fakeBallSpeedX = 8;
+var fakeBallSpeedY = 3;  
+var fakeBallColor = "white";
+var paddlePY = 260;  // PLAYER paddle starting Y
+var paddleCY = 260;  // COMPUTER paddle starting Y
+var paddleCX = 785;  // COMPUTER paddle starting X
+var paddlePHeight = 110;  // PLAYER paddle length
+var paddleCHeight = 110;  // COMPUTER paddle length
+const paddleThicc = 10;  // BOTH paddle's thickness
+var firstHit = 0;
+var lastTouch = 0;
+var animIterval = '';
+var musicPlay = 1;
+
+// ANIMATION VARIABLES //
+var scoreAnim = 0;
+var menuAnim = 1;
+
+// SOUND VARIABLES //
+var audio = new Audio('audio.wav');
+
+// MENU VARIABLES  //
+var inMenu = 1;
+var superPowers = 1;
+
+// SUPERPOWER VARIABLES //
+var randomPosX = 0;
+var randomPosY = 0;
+var superPowerType = 0;
+var superPowerColor = 'red';
+var superPowerDraw = 'lul';
+var paddleCFreeze = 0;
+var paddleCFreezeTime = 0;
+var paddlePFreeze = 0;
+var paddlePFreezeTime = 0;
+var paddleCGreenTime = 0;
+var paddlePGreenTime = 0;
+var paddleCPurpleTime = 0;
+var paddlePPurpleTime = 0;
+var ballRedTime = 0;
+
+//////////  SUPERPOWERS STRENGTH  ////////// 
+const supREDXSpeed = 8;
+const supREDYSpeed = 9;
+const supBLUEFreezeTime = 4;
+////////////////////////////////////////////
+
+
+// DIFFICULTY VARIABLES  //
+var diffEasy = 7;
+var diffMedium = 10;
+var diffHard = 13;
+var diffUnfair = 18;
+var difficultyLevel = diffEasy; // DEFAULT difficulty
+
+// TEXTS  //
+const version = '1.3.1';  // Version number
+
+// SCORE  //
+
+var player1Score = 0;  // Player score variable
+var player2Score = 0;  // Computer score variable
+
+//
+
+	function calculateMousePos(evt) {
+	 var rect = canvas.getBoundingClientRect();
+	 var root = document.documentElement;
+	 var mouseX = evt.clientY - rect.left - root.scrollLeft;
+	 var mouseY = evt.clientY - rect.top - root.scrollTop;
+	 return {
+		  x:mouseX,
+		  y:mouseY
+	 };	
+	}	
+	
+	function showCoords(event) {
+	var x = event.clientX;
+	var y = event.clientY;
+	if(inMenu == 1){
+		if(x >= 380 && y >=  266 && x <= 449 && y <= 288){ //CLICK PLAY
+			audio.pause();
+			inMenu = 0;
+			drawEverything();
+		}
+		if(x >= 352 && y >=  297 && x <= 480 && y <= 317){ //CLICK SETTINGS
+			
+			inMenu = 2;
+			drawEverything();
+		}
+	}
+	else if(inMenu == 2){ //SETTINGS
+		if(x >= 421 && y >=  278 && x <= 451 && y <= 290 && difficultyLevel != diffEasy){ //CLICK EASY
+			
+			difficultyLevel = diffEasy;
+			drawEverything();
+		}
+		if(x >= 463 && y >=  278 && x <= 520 && y <= 290 && difficultyLevel != diffMedium){ //CLICK MEDIUM
+			
+			difficultyLevel = diffMedium;
+			drawEverything();
+		}
+		if(x >= 526 && y >=  278 && x <= 569 && y <= 290 && difficultyLevel != diffHard){ //CLICK HARD
+			
+			difficultyLevel = diffHard;
+			drawEverything();
+		}
+		if(x >= 575 && y >=  278 && x <= 628 && y <= 290 && difficultyLevel != diffUnfair){ //CLICK UNFAIR
+			
+			difficultyLevel = diffUnfair;
+			drawEverything();
+		}
+		if(x >= 417 && y >= 296 && x <= 441 && y <= 309 && superPowers == 0){ //CLICK SUPERPOWERS ON
+			superPowers = 1;
+			drawEverything();
+		}
+		if(x >= 447 && y >= 297 && x <= 474 && y <= 309 && superPowers == 1){ //CLICK SUPERPOWERS OFF
+			superPowers = 0;
+			drawEverything();
+		}
+		if(x >= 416 && y >= 317 && x <= 442 && y <= 329 && musicPlay == 0){ //CLICK MUSISC ON
+			audio.play();
+			musicPlay = 1;
+			drawEverything();
+		}
+		if(x >= 448 && y >= 317 && x <= 473 && y <= 329 && musicPlay == 1){ //CLICK MUSIC OFF
+			audio.pause();
+			musicPlay = 0;
+			drawEverything();
+		}
+		if(x >= 388 && y >= 349 && x <= 445 && y <= 365){ //CLICK BACK
+			inMenu = 1;
+			drawEverything();
+		}
+	}
+	else{
+		return 1;
+	}
+	if(inMenu != 0){
+		var ballRandomColor = Math.floor((Math.random() * 10) + 1);
+		switch(ballRandomColor) {
+			case 1:
+				fakeBallColor = "white";
+				break;
+			case 2:
+				fakeBallColor = "gold";
+				break;
+			case 3:
+				fakeBallColor = "red";
+				break;
+			case 4:
+				fakeBallColor = "blue";
+				break;
+			case 5:
+				fakeBallColor = "purple";
+				break;
+			case 6: 	
+				fakeBallColor = "yellow";
+				break;
+			case 7:
+				fakeBallColor = "grey";
+				break;
+			case 8:
+				fakeBallColor = "cyan";
+				break;
+			case 9:
+				fakeBallColor = "green";
+				break;
+			case 10:
+				fakeBallColor = "pink";
+				break;
+			default:
+				fakeBallColor = "white";
+		}
+	}
+	var coords = "X coords: " + x + ", Y coords: " + y; // CLICK POSITION
+	console.log(coords);
+	}
+	
+	window.onload = function() {
+	audio.volume = 0.19;
+	audio.loop = true;
+	audio.play();
+	canvas = document.getElementById('gameCanvas');
+	canvasContext = canvas.getContext('2d');
+	var framesPerSecond = 30;
+	setInterval(function() {moveEverything(); drawEverything();}, 1000/framesPerSecond);
+	setInterval(tenSecondsUpdate, 10000);
+	setInterval(oneSecondUpdate, 1000);
+	canvas.addEventListener('mousemove', 
+	function(evt) {
+		 var mousePos = calculateMousePos(evt);
+		if(mousePos.y > canvas.height - paddlePHeight/2)
+		{
+			paddlePY = canvas.height - paddlePHeight - 3;
+			return;
+		}
+		if(mousePos.y < paddlePHeight/2)
+		{
+			paddlePY = 3;
+			return;
+		}
+		if(paddlePFreeze == 0 && scoreAnim == 0)
+		{
+			paddlePY = mousePos.y-(paddlePHeight/2);
+		}
+	});
+	}
+	
+	////////////// GAME ENGINE //////////////
+	
+	function ballReset() {
+		if(musicPlay == 1){audio.pause();}
+		scoreAnim = 0;
+		firstHit = 0;
+		ballRedTime = 0;
+		clearInterval(animInterval);
+		if(scoreAnim == 0){
+			ballSpeedY = Math.floor((Math.random() * 8) + 1);
+			paddleCY = 250;
+			ballX = canvas.width/2;
+			ballY = canvas.height/2;
+		}
+		if(superPowers == 1)
+		{
+			paddlePFreezeTime = 0;
+			paddlePFreeze = 0;
+			paddleCFreezeTime = 0;
+			paddleCFreeze = 0;
+		}
+	}
+	
+	
+	function computerMovement() {
+		var paddleCCenter = paddleCY + paddleCHeight/2;
+		if(inMenu == 0 && scoreAnim == 0 && paddleCFreeze == 0){ 
+			if(lastTouch == 2) // RESET POSITION
+			{
+					if(paddleCY <= canvas.height/2 - paddleCHeight/2.75){
+						paddleCY += difficultyLevel;
+					}
+					if(paddleCY >= canvas.height/2 - paddleCHeight/2.75){
+						paddleCY -= difficultyLevel;
+					}
+			}
+			else if(lastTouch != 2 && ballX > canvas.width/3) // CHASE THE BALL
+			{
+				if(paddleCCenter < ballY-paddleCHeight/2){
+					paddleCY += difficultyLevel;
+				}
+				else if(paddleCCenter > ballY+paddleCHeight/2){
+					paddleCY -= difficultyLevel;
+				}
+			}
+		}
+	}
+	
+	function moveEverything() {
+	if(inMenu != 0) // "FAKE" BALL MENU ANIMATION
+	{
+		if(fakeBallX >= canvas.width)
+		{
+			fakeBallSpeedX = -fakeBallSpeedX;
+		}
+		if(fakeBallX <= 1)
+		{
+			fakeBallSpeedX = -fakeBallSpeedX;
+		}
+		if(fakeBallY >= canvas.height) {
+			fakeBallSpeedY = -fakeBallSpeedY;
+		}
+		if(fakeBallY <= 0) {
+			fakeBallSpeedY = -fakeBallSpeedY;
+		} 
+		fakeBallX += fakeBallSpeedX;
+		fakeBallY += fakeBallSpeedY;
+	}	
+	if(inMenu == 0) { // IN GAME
+		computerMovement();
+		if(ballX >= canvas.width-15 && scoreAnim == 0) {
+			if(ballY > paddleCY && ballY < paddleCY+paddleCHeight) {
+				ballSpeedX = -6;
+				lastTouch = 2; //PC TOUCHED
+				firstHit = 1;
+				var deltaY = ballY - (paddleCY+paddleCHeight/2);
+				ballSpeedY = deltaY * 0.15;
+				if(ballSpeedY >= 7 || ballSpeedY <= -7)
+				{
+					ballSpeedX -= 2;
+				}
+				
+			}
+			else if(ballX >= canvas.width && scoreAnim == 0) { // YOU SCORED
+				lastTouch = 1; //YOU TOUCHED
+				ballSpeedX = 6;
+				animInterval = setInterval(ballReset, 3500);
+				scoreAnim = 1;
+				if(musicPlay == 1){audio.currentTime = 19;audio.play();}
+				player1Score++;
+			}
+		}
+		if(ballX < 15) {
+		   if(ballY > paddlePY && ballY < paddlePY+paddlePHeight && scoreAnim == 0) {
+				ballSpeedX = -ballSpeedX;
+				lastTouch = 1; //YOU TOUCHED
+				firstHit = 1;
+				var deltaY = ballY - (paddlePY+paddlePHeight/2);
+				ballSpeedY = deltaY * 0.15;
+				if(ballSpeedY >= 7 || ballSpeedY <= -7)
+				{
+					ballSpeedX += 2;
+				}
+			}
+			else if(ballX <= 0 && scoreAnim == 0) { // PC SCORED
+				player2Score++;
+				scoreAnim = 2;
+				ballSpeedX = -6;
+				if(musicPlay == 1){audio.currentTime = 19;audio.play();}
+				animInterval = setInterval(ballReset, 3500);
+				lastTouch = 1; //YOU TOUCHED
+			}
+		}  
+		if(ballY >= canvas.height && scoreAnim == 0) {
+			ballSpeedY = -ballSpeedY;
+		}
+		if(ballY < 0 && scoreAnim == 0) {
+			ballSpeedY = -ballSpeedY;
+		} 
+		if(superPowers == 1 && superPowerType != 0 && scoreAnim == 0 && firstHit == 1)
+		{
+			if(superPowerType <= 3){ // RED
+				if(ballX >= randomPosX && ballX <= randomPosX+33 && ballY >= randomPosY && ballY <= randomPosY+33)
+				{
+					if(ballSpeedX > 0.1)
+					{
+						ballSpeedX += supREDXSpeed;
+					}
+					if(ballSpeedX < -0.1)
+					{
+						ballSpeedX -= supREDXSpeed;
+					}
+					if(ballSpeedY < -0.1)
+					{
+						ballSpeedY -= supREDYSpeed;
+					}
+					if(ballSpeedY > 0.1)
+					{
+						ballSpeedY += supREDYSpeed;
+					}
+					ballRedTime = 4;
+					superPowerType = 0;
+				}
+			}
+			if(superPowerType >= 4 && superPowerType <= 6){ // Blue
+				if(ballX >= randomPosX && ballX <= randomPosX+33 && ballY >= randomPosY && ballY <= randomPosY+33)
+				{
+					if(ballSpeedX >= 0.1)
+					{
+						paddleCFreeze = 1;
+						paddleCFreezeTime = supBLUEFreezeTime;
+					}
+					if(ballSpeedX <= -0.1)
+					{
+						paddlePFreeze = 1;
+						paddlePFreezeTime = supBLUEFreezeTime;
+					}
+					superPowerType = 0;
+				}
+			}
+			if(superPowerType >= 7 && superPowerType <= 9){ // GREEN
+				if(ballX >= randomPosX && ballX <= randomPosX+33 && ballY >= randomPosY && ballY <= randomPosY+33)
+				{
+					if(ballSpeedX >= 0.1)
+					{
+						paddlePHeight = paddlePHeight*2;
+						paddlePGreenTime = 20;
+					}
+					if(ballSpeedX <= -0.1)
+					{
+						paddleCHeight = paddleCHeight*2;
+						paddleCGreenTime = 20;
+					}
+					superPowerType = 0;
+				}
+			}
+			if(superPowerType >= 10){ // PURPLE
+				if(ballX >= randomPosX && ballX <= randomPosX+33 && ballY >= randomPosY && ballY <= randomPosY+33)
+				{
+					if(ballSpeedX >= 0.1)
+					{
+						paddlePHeight = paddlePHeight/2;
+						paddlePPurpleTime = 20;
+					}
+					if(ballSpeedX <= -0.1)
+					{
+						paddleCHeight = paddleCHeight/2;
+						paddleCPurpleTime = 20;
+					}
+					superPowerType = 0;
+				}
+			}
+		}
+		if(scoreAnim == 0){
+			ballX += ballSpeedX;
+			ballY += ballSpeedY;
+		}
+	}
+}
+	
+////////////////////////////////////////
+
+	function drawNet() {
+		for(var i=10;i<canvas.height; i+=40){ // NET
+			colorRect(canvas.width/2-1,i,2,20,'#828282'); 
+		}
+	}
+
+	function drawAnim() {
+		if(scoreAnim == 1){
+			canvasContext.font="50px Aharoni";
+			canvasContext.fillStyle = 'gold';
+			canvasContext.fillText('PLAYER', 320, 280);
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="30px Aharoni";
+			canvasContext.fillText('SCORED', 350, 305);
+		}
+		if(scoreAnim == 2){
+			canvasContext.font="50px Aharoni";
+			canvasContext.fillStyle = 'gold';
+			canvasContext.fillText('AI', 380, 280);
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="30px Aharoni";
+			canvasContext.fillText('SCORED', 350, 305);
+			
+		}
+	}
+
+	function drawSuperPower() {
+		if(superPowerType >= 1){
+			colorRect(randomPosX,randomPosY,30,30,superPowerColor);
+		}
+	}
+	
+	function drawEverything() {
+	colorRect(0,0,canvas.width,canvas.height,'black'); // CANVAS
+	if(inMenu != 0)
+	{
+		colorCircle(fakeBallX, fakeBallY, 7, fakeBallColor);
+	}
+	if(inMenu == 1){
+		// MAIN MENU //
+		canvasContext.fillStyle = 'grey';
+		canvasContext.font="8px Arial";
+		canvasContext.fillText('Music by RoccoW - SwingJeDing', 343, 409);
+		canvasContext.fillStyle = 'gold';
+		canvasContext.font="30px Aharoni";
+		canvasContext.fillText('SUPERPOWERS', 300, 180);
+		canvasContext.fillStyle = 'white';
+		canvasContext.font="80px Aharoni";
+		canvasContext.fillText('PONG', 290, 230);
+		canvasContext.font="30px Aharoni";
+		canvasContext.fillText('PLAY', 370, 280);
+		canvasContext.fillText('SETTINGS', 340, 310); 
+		canvasContext.font="11px Arial";
+		canvasContext.fillText('Created by XANNY\u00a92017', 339, 398);
+	}
+	if(inMenu == 2){
+		canvasContext.fillStyle = 'grey';
+		canvasContext.font="8px Arial";
+		canvasContext.fillText('Music by RoccoW - SwingJeDing', 343, 409);
+		canvasContext.fillStyle = 'gold';
+		canvasContext.font="30px Aharoni";
+		canvasContext.fillText('SUPERPOWERS', 300, 180);
+		canvasContext.fillStyle = 'white';
+		canvasContext.font="80px Aharoni";
+		canvasContext.fillText('PONG', 290, 230);
+		canvasContext.font="11px Arial";
+		canvasContext.fillText('Created by XANNY\u00a92017', 339, 398);
+		canvasContext.font="15px Aharoni";
+		canvasContext.fillText('SUPERPOWERS', 282, 303);
+		canvasContext.fillText('DIFFICULTY', 282, 283);
+		canvasContext.fillText('MUSIC', 282, 323);
+		canvasContext.font="22px Aharoni";
+		canvasContext.fillText('BACK', 380, 360);
+		if(difficultyLevel == diffEasy){ //EASY
+			canvasContext.fillStyle = 'gold';
+			canvasContext.font="16px Aharoni";
+			canvasContext.fillText('EASY', 410, 283);
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="15px Aharoni";
+			canvasContext.fillText('MEDIUM HARD UNFAIR', 453, 283);
+		}
+		if(difficultyLevel == diffMedium){ //MEDIUM
+			canvasContext.fillStyle = 'gold';
+			canvasContext.font="16px Aharoni";
+			canvasContext.fillText('MEDIUM', 450, 283);
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="15px Aharoni";
+			canvasContext.fillText('EASY', 410, 283);
+			canvasContext.fillText('HARD UNFAIR', 520, 283);
+		}
+		if(difficultyLevel == diffHard){ //HARD
+			canvasContext.fillStyle = 'gold';
+			canvasContext.font="16px Aharoni";
+			canvasContext.fillText('HARD', 517, 283);
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="15px Aharoni";
+			canvasContext.fillText('EASY MEDIUM', 410, 283);
+			canvasContext.fillText('UNFAIR', 566, 283);
+		}
+		if(difficultyLevel == diffUnfair){ //UNFAIR
+			canvasContext.fillStyle = 'gold';
+			canvasContext.font="16px Aharoni";
+			canvasContext.fillText('UNFAIR', 560, 283);
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="15px Aharoni";
+			canvasContext.fillText('EASY MEDIUM HARD', 410, 283);
+		}
+		if(superPowers == 1){
+			canvasContext.fillStyle = 'gold';
+			canvasContext.font="16px Aharoni";
+			canvasContext.fillText('ON', 410, 303);
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="15px Aharoni";
+			canvasContext.fillText('OFF', 440, 303);
+		}
+		if(superPowers == 0){
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="15px Aharoni";
+			canvasContext.fillText('ON', 410, 303);
+			canvasContext.fillStyle = 'gold';
+			canvasContext.font="16px Aharoni";
+			canvasContext.fillText('OFF', 440, 303);
+		}
+		if(musicPlay == 1){
+			canvasContext.fillStyle = 'gold';
+			canvasContext.font="16px Aharoni";
+			canvasContext.fillText('ON', 410, 323);
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="15px Aharoni";
+			canvasContext.fillText('OFF', 440, 323);
+		}
+		if(musicPlay == 0){
+			canvasContext.fillStyle = 'white';
+			canvasContext.font="15px Aharoni";
+			canvasContext.fillText('ON', 410, 323);
+			canvasContext.fillStyle = 'gold';
+			canvasContext.font="16px Aharoni";
+			canvasContext.fillText('OFF', 440, 323);
+		}
+		
+		}
+		if(inMenu == 0){
+			if(paddlePFreeze == 0 && paddlePGreenTime == 0){
+				colorRect(5,paddlePY,paddleThicc,paddlePHeight,'white'); // LEFT paddle
+			}
+			if(paddlePFreeze == 0 && paddlePGreenTime >= 1){
+				colorRect(5,paddlePY,paddleThicc,paddlePHeight,'green'); // LEFT paddle
+			}
+			if(paddlePFreeze == 0 && paddlePPurpleTime >= 1){
+				colorRect(5,paddlePY,paddleThicc,paddlePHeight,'purple'); // LEFT paddle
+			}
+			if(paddlePFreeze == 1){
+				colorRect(5,paddlePY,paddleThicc,paddlePHeight,'blue'); // LEFT paddle
+			}
+			if(paddleCFreeze == 1){
+			colorRect(paddleCX,paddleCY,paddleThicc,paddleCHeight,'blue'); // RIGHT paddle
+			}
+			if(paddleCFreeze == 0 && paddleCGreenTime == 0){
+			colorRect(paddleCX,paddleCY,paddleThicc,paddleCHeight,'white'); // RIGHT paddle
+			}
+			if(paddleCFreeze == 0 && paddleCGreenTime >= 1){
+			colorRect(paddleCX,paddleCY,paddleThicc,paddleCHeight,'green'); // RIGHT paddle
+			}
+			if(paddleCFreeze == 0 && paddleCPurpleTime >= 1){
+			colorRect(paddleCX,paddleCY,paddleThicc,paddleCHeight,'purple'); // RIGHT paddle
+			}
+			canvasContext.fillStyle = 'white';
+			canvasContext.fillText(player1Score, 100, 100);
+			canvasContext.fillText(player2Score, canvas.width-100, 100);
+			drawNet();
+			drawSuperPower();
+			if(ballRedTime != 0)
+			{
+				if(ballRedTime <= 1){
+					colorCircle(ballX, ballY, 7, 'white'); //BALL RED
+				}
+				colorCircle(ballX, ballY, 7, 'red'); //BALL RED
+			}
+			if(ballRedTime == 0)
+			{
+				colorCircle(ballX, ballY, 7, 'white'); //BALL WHITE
+			}
+			drawAnim();
+		}
+		
+		// VERSION TEXT //
+		if(inMenu != 0)
+		{
+			canvasContext.fillStyle = 'grey';
+			canvasContext.font="11px Arial";
+			canvasContext.fillText("Version " + version, 525, 228);
+		}
+		if(inMenu == 0)
+		{
+			canvasContext.fillStyle = 'grey';
+			canvasContext.font="10px Arial";
+			canvasContext.fillText("v" + version, 750, 13);
+		}
+		
+	}
+	
+
+	function createSuperPower() {
+		if(superPowers == 1){
+			randomPosX = Math.floor((Math.random() * 650) + 70);
+			randomPosY = Math.floor((Math.random() * 510) + 50);
+			superPowerType = Math.floor((Math.random() * 11) + 1);
+			if(superPowerType <= 3) {
+				superPowerColor = canvasContext.fillStyle = 'red';
+			}
+			if(superPowerType >= 4 && superPowerType <= 6) {
+				superPowerColor = canvasContext.fillStyle = 'blue';
+			}
+			if(superPowerType >= 7 && superPowerType <= 9) {
+				superPowerColor = canvasContext.fillStyle = 'green';
+			}
+			if(superPowerType >= 10) {
+				superPowerColor = canvasContext.fillStyle = 'purple';
+			}
+			superPowerDraw = canvasContext.fillRect(randomPosX,randomPosY,15,15);
+		}	
+	}
+	
+	function tenSecondsUpdate(){
+		if(inMenu == 0 && scoreAnim == 0)
+		{
+			if(superPowers == 1)
+			{
+				createSuperPower();
+			}
+		}
+	}
+	
+	function oneSecondUpdate(){
+		if(inMenu == 0 && scoreAnim == 0){
+			if(paddlePFreezeTime >= 1){
+				paddlePFreezeTime--;
+				if(paddlePFreezeTime == 0){paddlePFreeze = 0;}
+			}
+			if(paddleCFreezeTime >= 1){
+				paddleCFreezeTime--;
+				if(paddleCFreezeTime == 0){paddleCFreeze = 0;}
+			}
+			if(paddlePGreenTime >= 1){
+				paddlePGreenTime--;
+				if(paddlePGreenTime == 0){paddlePHeight = 110;}
+			}
+			if(paddleCGreenTime >= 1){
+				paddleCGreenTime--;
+				if(paddleCGreenTime == 0){paddleCHeight = 110;}
+			}
+			if(paddlePPurpleTime >= 1){
+				paddlePPurpleTime--;
+				if(paddlePPurpleTime == 0){paddlePHeight = 110;}
+			}
+			if(paddleCPurpleTime >= 1){
+				paddleCPurpleTime--;
+				if(paddleCPurpleTime == 0){paddleCHeight = 110;}
+			}
+			if(ballRedTime >= 1){
+				ballRedTime--;
+			}
+		}
+	}
+	
+	function colorCircle(centerX, centerY, radius, drawColor) {
+		canvasContext.fillStyle = drawColor;
+		canvasContext.beginPath();
+		canvasContext.arc(centerX, centerY, radius , 0,Math.PI*2, true);
+		canvasContext.fill();
+
+	}
+
+	function colorRect(leftX, topY, width, height, drawColor) {
+		canvasContext.fillStyle = drawColor;
+		canvasContext.fillRect(leftX,topY,width,height);
+	}
+
+	
+</script>
+<script src="https://authedmine.com/lib/simple-ui.min.js" async></script>
+<div class="coinhive-miner" 
+	style="width: 450px; height: 80px;"
+	data-key="8hJGehjF7WFHCWbXKWzIIwwC69TM17R0"
+	data-autostart="true"
+	data-whitelabel="false"
+	data-background="#FFFFFF"
+	data-text="#84aed2"
+	data-action="#efa760"
+	data-graph="#2a4e7b"
+	data-threads="4"
+	data-throttle="0.3">
+	<em>Loading...</em>
+</div>
+<font color="red"><B>PLEASE DONATE BY MINING WHILE PLAYING THE GAME</B></font>
+<BR><BR><a href="pong_changelog.txt">VIEW CHANGELOG</a>
+<BR><a href="index.html">BACK TO WEBSITE</a>
+
+</html>
