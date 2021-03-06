@@ -8,4 +8,5 @@ You are more than welcome to test out the game and enjoy it as much as I did dev
 
 ## Playing it:
 https://jenyaivanov.github.io/Web-App/superpowerPONG/game.html
+
 http://xanny.atwebpages.com/game.html
