@@ -1,0 +1,105 @@
+body {
+    font-family: 'Arial Rounded MT Bold', serif;
+    background-color: black;
+}
+
+#container {
+    width: 1000px;
+    height: 550px;
+    background-image:
+            linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+            url("https://www.intuition.com/wp-content/uploads/2020/02/abstract-data-background-picture-id1095376058.jpg");
+    margin: 20px auto;
+
+}
+
+#calculator {
+    width: 320px;
+    height: 520px;
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    margin: auto;
+    top: 20px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px 15px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#result {
+    height: 120px;
+}
+
+#history {
+    text-align: right;
+    height: 20px;
+    margin: 0 20px;
+    padding-top: 20px;
+    font-size: 15px;
+    color: lightgrey;
+}
+
+#output {
+    text-align: right;
+    height:  50px;
+    margin: 10px 15px;
+    font-size: 35px;
+    color: white;
+}
+
+#keyboard {
+    height: 400px;
+}
+
+.operator, .number, .empty {
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    color: white;
+    float: left;
+    border-radius: 50%;
+    border-width: 0;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #537895;
+}
+
+.empty {
+    background-color: transparent;
+}
+
+.number {
+    font-size: 25px;
+    color: white;
+    background-color: transparent;
+}
+
+/* Custom button design */
+
+#\/ , #\-, #\+, #\*{
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    color: white;
+    font-size: 20px;
+}
+
+#equals { /* Minus button */
+    border-radius: 25px;
+    color: white;
+    width: 130px;
+    background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+}
+
+.operator:active, .number:active {
+    font-size: 15px;
+    color: white;
+}
+
+.operator:focus, .number:focus, .empty:focus {
+    outline: 0;
+}
+
+#credits {
+    color: white;
+    font-size: 10px;
+    margin: 8px 10px;
+}
