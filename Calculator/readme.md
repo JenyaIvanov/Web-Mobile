@@ -1,8 +1,8 @@
 # Calculator
 An Javascript functioning calculator.
 
-# Information:
+## Information:
 This is my first project to combine Javascript, HTML & CSS in one. Made via tutorial as a "Hello World" project.
 
-# View it:
+## View it:
 https://jenyaivanov.github.io/Web-App/Calculator/index.html
