@@ -7,6 +7,6 @@ It has nothing too special on the PONG aspects yet I've decided to add a few SUP
 You are more than welcome to test out the game and enjoy it as much as I did developing & playing it myself.
 
 ## Playing it:
-https://jenyaivanov.github.io/Web-App/superpowerPONG/game.html
+https://jenyaivanov.github.io/Web-Mobile/superpowerPONG/game.html
 
 http://xanny.atwebpages.com/game.html
