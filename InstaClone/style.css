@@ -1,0 +1,54 @@
+.navbar-button-css {
+    font-size: 22px;
+
+}
+
+.user-image {
+    width: 8%;
+    margin-left: 0.8rem;
+    border-radius: 50%;
+}
+
+.card-profile span{
+    margin-left: 0.5rem;
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.card-icons {
+    font-size: 20px;
+    margin-top: 0.1rem;
+    margin-left: 0;
+}
+
+.card-like-counter {
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.card-title {
+    margin-top: -0.7rem;
+}
+
+.card-sub {
+    margin-top: -0.5rem;
+}
+
+.card-img-top {
+    padding: 0.4rem;
+}
+
+.card-text {
+    margin-top: -0.9rem;
+    font-size: 14px;
+}
+
+.card-text span {
+    font-weight: 550;
+}
+
+.card {
+    width: 111.7%;
+    border: none;
+    margin-left: -1.1rem;
+}
