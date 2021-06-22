@@ -1,0 +1,197 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* -~-~-~ Navbar ~-~-~- */
+
+.navbar-button-css {
+    display: block;
+    float: left;
+
+    font-size: 24px !important;
+    margin-left: 0.6rem;
+
+}
+
+.navbar-container {
+    z-index: 999;
+    background-color: white;
+    outline-style: solid;
+    outline-color: lightgrey;
+    outline-width: 1px;
+    width: 100%;
+    margin-left: -0.8rem;
+    margin-bottom: 0;
+
+}
+
+.navbar {
+    padding-bottom: 25px !important;
+}
+
+/* -~-~-~ Stories ~-~-~- */
+
+.user-image-story {
+    border-radius: 50%;
+    width: 20%;
+
+    border: 2px solid lightgrey;
+    padding: 3px;
+    background-clip: content-box; /* support: IE9+ */
+    background-color: #ccc;
+
+
+}
+
+.user-image-story-rootUser {
+    border-radius: 50%;
+    width: 20%;
+
+    padding: 3px;
+    background-clip: content-box; /* support: IE9+ */
+    background-color: #ccc;
+
+
+}
+
+
+.instaclone-header {
+    width: 109%;
+    display: inline;
+    margin-bottom: -1.5rem;
+}
+
+.header-icons {
+    margin-left: 28px !important;
+    margin-top: 10px !important;
+}
+
+.story-list {
+    padding-top: 12px;
+    margin-top: 0;
+    list-style-type: none;
+    margin-left: -8px;
+    margin-bottom: 0;
+    background-color: white;
+
+}
+
+.story-list-yourstory {
+    position: relative;
+}
+
+.story-list-addstory {
+    position: absolute;
+    width: 25%;
+    left: 50px;
+    top: 5px;
+
+}
+
+
+.story-list li{
+    margin-left: 0.8rem;
+    display: inline;
+}
+
+.story-list li span {
+    color: black;
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+}
+
+/* -~-~-~ Body / Content ~-~-~- */
+
+.card-profile {
+    margin-bottom: 8px;
+}
+
+.card-profile-options {
+    float: right;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+/* -~ Uploader image ~- */
+.user-image {
+    width: 8%;
+    border: 1px solid lightgrey;
+    margin-left: 1rem;
+    border-radius: 50%;
+}
+
+/* -~ Username ~- */
+.card-profile span{
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: 550;
+}
+
+.card-icons {
+    color: black;
+    font-size: 22px !important;
+    margin-top: 3px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+}
+
+.rootUser-comment {
+    margin-left: 1px;
+}
+
+.rootUser-comment-time {
+    margin-top: -5px;
+    color: darkgrey;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.rootUser-comment span {
+    margin-left: 8px;
+    font-weight: lighter;
+    font-size: 14px;
+    color: darkgrey;
+}
+
+.rootUser-comment-pic {
+    padding: 1px;
+    width: 8%;
+    border-radius: 50%;
+}
+
+.card-like-counter {
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.card-title {
+    margin-top: -0.7rem;
+}
+
+.card-sub {
+    margin-top: -0.5rem;
+    margin-left: 5px;
+}
+
+.card-user-img {
+    padding: 0.4rem;
+    margin-left: -2px;
+    width: 100%;
+
+}
+
+.card-text {
+    margin-top: -0.9rem;
+    font-size: 14px;
+}
+
+.card-text span {
+    font-weight: 550;
+}
+
+.card {
+    width: 111.9%;
+    border: none;
+    margin-left: -1.1rem;
+}
