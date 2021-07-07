@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Instaclone - By Jenya Ivanov </title>
+
+    <!-- CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+            rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <!-- MDB -->
+</head>
+
+<body>
+<!-- Comment -->
+<!---- Large ---->
+<!--~-~- <!> Warning! <!> ~-~--->
+<!--~-~-  Flag -~-~--->
+
+
+<!-- Navbar -->
+<div class="container-fluid fixed-bottom position-fixed navbar-container">
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-home navbar-button-css" id="home_button"></i>
+            </a> <!-- Button: Home -->
+
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-search navbar-button-css" id="explore_button"></i>
+            </a> <!-- Button: Explore -->
+
+            <a class="navbar-brand" href="#">
+                <i class="far fa-plus-square navbar-button-css" id="cameraView"></i>
+            </a> <!-- Button: Meme -->
+
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-shopping-bag navbar-button-css" id="shopingBag"></i>
+            </a> <!-- Button: "SHOP" -->
+
+
+            <a class="navbar-brand" href="#">
+                <i class="far fa-user-circle navbar-button-css" id="contact_button"></i>
+            </a>
+
+        </div>
+    </nav>
+</div>
+<!-- / Navbar -->
+
+<!---- Search Box ---->
+<div class="container-fluid searchBox">
+        <form class="">
+            <input class="form-control me-2 searchBox-bar" type="search" placeholder="&#xf002  Search" aria-label="Search">
+        </form>
+</div>
+<!-- / Search Box -->
+
+<!---- Header ---->
+<div class="container-fluid fixed-top position-fixed topNav">
+    <div class="row instaclone-header">
+        <ul class="story-list">
+            <li>
+               <span>Instaclone</span>
+            </li>
+
+            <li>
+                <i class="far fa-paper-plane card-icons float-end header-icons me-2"></i>
+            </li>
+
+            <li>
+                <i class="far fa-heart card-icons float-end header-icons"></i>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+<!---- Stories ---->
+<br><br>
+<div class="container-fluid mt-2 storiesNav">
+    <div class="row">
+        <ul class="story-list">
+            <li class="story-list-yourstory">
+                <img src="img/rootUser.jpg" class="user-image-story-rootUser" alt="Profile picture">
+                <span class="story-list-addstory">
+                    <img src="img/addStory-icon.png" class="img-fluid" alt="Add to your story">
+                </span>
+            </li>
+            <li>
+                <img src="https://thispersondoesnotexist.com/image" class="user-image-story" id="user1" alt="Profile picture" >
+            </li>
+            <li>
+                <img src="https://thispersondoesnotexist.com/image" class="user-image-story" id="user2" alt="Profile picture">
+            </li>
+            <li>
+                <img src="https://thispersondoesnotexist.com/image" class="user-image-story" id="user3" alt="Profile picture">
+            </li>
+        </ul>
+    </div>
+    <hr>
+</div>
+<!---- /Stories ---->
+<!---- /Header ---->
+
+
+
+<!---- Body ---->
+
+<!----- Posts ----->
+<div class="container-fluid shiftView startView">
+    <!---- #1st Post ---->
+    <div class="card">
+
+        <!---- Poster (Post Header) ---->
+        <p class="card-profile">
+            <img src="https://thispersondoesnotexist.com/image" class="user-image img-fluid" alt="Profile picture">
+            <span class="POST_USERNAME">Username</span>
+
+            <span class="card-profile-options">
+                <i class="fas fa-ellipsis-h me-3"></i>
+            </span>
+        </p>
+
+        <!---- User content ---->
+        <img src="https://picsum.photos/200/300" class="img-fluid card-user-img" alt="User image">
+
+        <div class="card-body">
+            <!---- Post Icons ---->
+            <h5 class="card-title">
+                <i class="far fa-heart card-icons HEART_ICON"></i>
+                <i class="far fa-comment card-icons ms-3"></i>
+                <i class="far fa-paper-plane card-icons ms-3"></i>
+                <i class="far fa-bookmark float-end card-icons me-3 BOOKMARK_ICON"></i>
+            </h5>
+            <div class="card-sub">
+
+                <!---- Like Counter ---->
+                <p class="card-like-counter">2,429 likes</p>
+
+                <p class="card-text">
+                    <span class="POST_USERNAME">Username</span>
+                    <span class="POST_DESCRIPTION">I'm back at it 🤣</span>
+                </p>
+
+                <!---- Comment ---->
+                <p class="rootUser-comment">
+                    <img src="img/rootUser.jpg" class="img-fluid rootUser-comment-pic" alt="Your profile picture">
+                    <span>
+                        Add a comment...
+                    </span>
+                </p>
+
+                <!---- Post time ---->
+                <p class="rootUser-comment-time">
+                    4 hours ago
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!---- #2nd Post ---->
+    <div class="card">
+
+        <!---- Poster (Post Header) ---->
+        <p class="card-profile">
+            <img src="https://thispersondoesnotexist.com/image" class="user-image img-fluid" alt="Profile picture">
+            <span class="POST_USERNAME">Username</span>
+
+            <span class="card-profile-options">
+                <i class="fas fa-ellipsis-h me-3"></i>
+            </span>
+        </p>
+
+        <!---- User content ---->
+        <img src="https://picsum.photos/200/300" class="img-fluid card-user-img" alt="User image">
+
+        <div class="card-body">
+            <!---- Post Icons ---->
+            <h5 class="card-title">
+                <i class="far fa-heart card-icons HEART_ICON"></i>
+                <i class="far fa-comment card-icons ms-3"></i>
+                <i class="far fa-paper-plane card-icons ms-3"></i>
+                <i class="far fa-bookmark float-end card-icons me-3 BOOKMARK_ICON"></i>
+            </h5>
+            <div class="card-sub">
+
+                <!---- Like Counter ---->
+                <p class="card-like-counter">2,429 likes</p>
+
+                <p class="card-text">
+                    <span class="POST_USERNAME">Username</span>
+                    <span class="POST_DESCRIPTION">I'm back at it 🤣</span>
+                </p>
+
+                <!---- Comment ---->
+                <p class="rootUser-comment">
+                    <img src="img/rootUser.jpg" class="img-fluid rootUser-comment-pic" alt="Your profile picture">
+                    <span>
+                        Add a comment...
+                    </span>
+                </p>
+
+                <!---- Post time ---->
+                <p class="rootUser-comment-time">
+                    4 hours ago
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!---- #3rd Post ---->
+    <div class="card">
+
+        <!---- Poster (Post Header) ---->
+        <p class="card-profile">
+            <img src="https://thispersondoesnotexist.com/image" class="user-image img-fluid" alt="Profile picture">
+            <span class="POST_USERNAME">Username</span>
+
+            <span class="card-profile-options">
+                <i class="fas fa-ellipsis-h me-3"></i>
+            </span>
+        </p>
+
+        <!---- User content ---->
+        <img src="https://picsum.photos/200/300" class="img-fluid card-user-img" alt="User image">
+
+        <div class="card-body">
+            <!---- Post Icons ---->
+            <h5 class="card-title">
+                <i class="far fa-heart card-icons HEART_ICON"></i>
+                <i class="far fa-comment card-icons ms-3"></i>
+                <i class="far fa-paper-plane card-icons ms-3"></i>
+                <i class="far fa-bookmark float-end card-icons me-3 BOOKMARK_ICON"></i>
+            </h5>
+            <div class="card-sub">
+
+                <!---- Like Counter ---->
+                <p class="card-like-counter">2,429 likes</p>
+
+                <p class="card-text">
+                    <span class="POST_USERNAME">Username</span>
+                    <span class="POST_DESCRIPTION">I'm back at it 🤣</span>
+                </p>
+
+                <!---- Comment ---->
+                <p class="rootUser-comment">
+                    <img src="img/rootUser.jpg" class="img-fluid rootUser-comment-pic" alt="Your profile picture">
+                    <span>
+                        Add a comment...
+                    </span>
+                </p>
+
+                <!---- Post time ---->
+                <p class="rootUser-comment-time">
+                    4 hours ago
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!---- #4th Post ---->
+    <div class="card">
+
+        <!---- Poster (Post Header) ---->
+        <p class="card-profile">
+            <img src="https://thispersondoesnotexist.com/image" class="user-image img-fluid" alt="Profile picture">
+            <span class="POST_USERNAME">Username</span>
+
+            <span class="card-profile-options">
+                <i class="fas fa-ellipsis-h me-3"></i>
+            </span>
+        </p>
+
+        <!---- User content ---->
+        <img src="https://picsum.photos/200/300" class="img-fluid card-user-img" alt="User image">
+
+        <div class="card-body">
+            <!---- Post Icons ---->
+            <h5 class="card-title">
+                <i class="far fa-heart card-icons HEART_ICON"></i>
+                <i class="far fa-comment card-icons ms-3"></i>
+                <i class="far fa-paper-plane card-icons ms-3"></i>
+                <i class="far fa-bookmark float-end card-icons me-3 BOOKMARK_ICON"></i>
+            </h5>
+            <div class="card-sub">
+
+                <!---- Like Counter ---->
+                <p class="card-like-counter">2,429 likes</p>
+
+                <p class="card-text">
+                    <span class="POST_USERNAME">Username</span>
+                    <span class="POST_DESCRIPTION">I'm back at it 🤣</span>
+                </p>
+
+                <!---- Comment ---->
+                <p class="rootUser-comment">
+                    <img src="img/rootUser.jpg" class="img-fluid rootUser-comment-pic" alt="Your profile picture">
+                    <span>
+                        Add a comment...
+                    </span>
+                </p>
+
+                <!---- Post time ---->
+                <p class="rootUser-comment-time">
+                    4 hours ago
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!---- #5th Post ---->
+    <div class="card">
+
+        <!---- Poster (Post Header) ---->
+        <p class="card-profile">
+            <img src="https://thispersondoesnotexist.com/image" class="user-image img-fluid" alt="Profile picture">
+            <span class="POST_USERNAME">Username</span>
+
+            <span class="card-profile-options">
+                <i class="fas fa-ellipsis-h me-3"></i>
+            </span>
+        </p>
+
+        <!---- User content ---->
+        <img src="https://picsum.photos/200/300" class="img-fluid card-user-img" alt="User image">
+
+        <div class="card-body">
+            <!---- Post Icons ---->
+            <h5 class="card-title">
+                <i class="far fa-heart card-icons HEART_ICON"></i>
+                <i class="far fa-comment card-icons ms-3"></i>
+                <i class="far fa-paper-plane card-icons ms-3"></i>
+                <i class="far fa-bookmark float-end card-icons me-3 BOOKMARK_ICON"></i>
+            </h5>
+            <div class="card-sub">
+
+                <!---- Like Counter ---->
+                <p class="card-like-counter">2,429 likes</p>
+
+                <p class="card-text">
+                    <span class="POST_USERNAME">Username</span>
+                    <span class="POST_DESCRIPTION">I'm back at it 🤣</span>
+                </p>
+
+                <!---- Comment ---->
+                <p class="rootUser-comment">
+                    <img src="img/rootUser.jpg" class="img-fluid rootUser-comment-pic" alt="Your profile picture">
+                    <span>
+                        Add a comment...
+                    </span>
+                </p>
+
+                <!---- Post time ---->
+                <p class="rootUser-comment-time">
+                    4 hours ago
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!---- #6th Post ---->
+    <div class="card">
+
+        <!---- Poster (Post Header) ---->
+        <p class="card-profile">
+            <img src="https://thispersondoesnotexist.com/image" class="user-image img-fluid" alt="Profile picture">
+            <span class="POST_USERNAME">Username</span>
+
+            <span class="card-profile-options">
+                <i class="fas fa-ellipsis-h me-3"></i>
+            </span>
+        </p>
+
+        <!---- User content ---->
+        <img src="https://picsum.photos/200/300" class="img-fluid card-user-img" alt="User image">
+
+        <div class="card-body">
+            <!---- Post Icons ---->
+            <h5 class="card-title">
+                <i class="far fa-heart card-icons HEART_ICON"></i>
+                <i class="far fa-comment card-icons ms-3"></i>
+                <i class="far fa-paper-plane card-icons ms-3"></i>
+                <i class="far fa-bookmark float-end card-icons me-3 BOOKMARK_ICON"></i>
+            </h5>
+            <div class="card-sub">
+
+                <!---- Like Counter ---->
+                <p class="card-like-counter">2,429 likes</p>
+
+                <p class="card-text">
+                    <span class="POST_USERNAME">Username</span>
+                    <span class="POST_DESCRIPTION">I'm back at it 🤣</span>
+                </p>
+
+                <!---- Comment ---->
+                <p class="rootUser-comment">
+                    <img src="img/rootUser.jpg" class="img-fluid rootUser-comment-pic" alt="Your profile picture">
+                    <span>
+                        Add a comment...
+                    </span>
+                </p>
+
+                <!---- Post time ---->
+                <p class="rootUser-comment-time">
+                    4 hours ago
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!---- #7th Post ---->
+    <div class="card">
+
+        <!---- Poster (Post Header) ---->
+        <p class="card-profile">
+            <img src="https://thispersondoesnotexist.com/image" class="user-image img-fluid" alt="Profile picture">
+            <span class="POST_USERNAME">Username</span>
+
+            <span class="card-profile-options">
+                <i class="fas fa-ellipsis-h me-3"></i>
+            </span>
+        </p>
+
+        <!---- User content ---->
+        <img src="https://picsum.photos/200/300" class="img-fluid card-user-img" alt="User image">
+
+        <div class="card-body">
+            <!---- Post Icons ---->
+            <h5 class="card-title">
+                <i class="far fa-heart card-icons HEART_ICON"></i>
+                <i class="far fa-comment card-icons ms-3"></i>
+                <i class="far fa-paper-plane card-icons ms-3"></i>
+                <i class="far fa-bookmark float-end card-icons me-3 BOOKMARK_ICON"></i>
+            </h5>
+            <div class="card-sub">
+
+                <!---- Like Counter ---->
+                <p class="card-like-counter">2,429 likes</p>
+
+                <p class="card-text">
+                    <span class="POST_USERNAME">Username</span>
+                    <span class="POST_DESCRIPTION">I'm back at it 🤣</span>
+                </p>
+
+                <!---- Comment ---->
+                <p class="rootUser-comment">
+                    <img src="img/rootUser.jpg" class="img-fluid rootUser-comment-pic" alt="Your profile picture">
+                    <span>
+                        Add a comment...
+                    </span>
+                </p>
+
+                <!---- Post time ---->
+                <p class="rootUser-comment-time" id="explore">
+                    4 hours ago
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr>
+</div>
+
+
+<!---- Explore Tab ---->
+<div class="lightbox-gallery shiftView">
+    <div class="container">
+        <div class="row photos">
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><img class="img-fluid RANDOM_SEARCH_IMG" src="https://picsum.photos/200/300"></div>
+        </div>
+    </div>
+</div>
+
+<!---- Upload ---->
+<div class="container-fluid my-3 shiftView">
+</div>
+
+<!---- Market ---->
+<div class="container-fluid my-3 shiftView">
+</div>
+
+
+<!---- Contact ---->
+<div class="container-fluid shiftView">
+
+    <div class="card contact-card">
+        <span class="createdby">Created by;</span>
+        <p class="card-contact">
+            <img src="img/rootUser.jpg" class="img-fluid contact-picture shadow" alt="Profile picture">
+            <span class="devname">Jenya Ivanov</span>
+        </p>
+
+        <div class="contact-body">
+            <!---- Post Icons ---->
+          <p>Thanks for viewing this demo.</p>
+          <p>This was developed as an exam practice <br>at a Web-dev course in <a href="https://www.sapir.ac.il/">Sapir Academic College</a>.</p>
+          <br>
+            <p><b>Credits:</b></p>
+          <p style="margin-top: -15px"><a href="https://github.com/Kogwork">@Kogwork</a> - Debug and ideas.</p>
+            <br>
+          <p class="font-weight-bold">Contact me:</p>
+          <div class="contact-links">
+              <span>
+              <p><a href="https://github.com/JenyaIvanov">
+              <i class="fab fa-github-square contact-icon"></i>
+              GitHub
+          </a></p>
+          <p><a href="https://www.linkedin.com/in/jenya-ivanov-a8a82a200/">
+              <i class="fab fa-linkedin contact-icon"></i>
+              LinkedIn
+          </a></p>
+          </span>
+          </div>
+        </div>
+    </div>
+</div>
+
+<!---- Story ---->
+<div class="container-fluid storyView">
+    <div class="card story-card">
+        <div class="story-body">
+            <img class="img-fluid story-img" src="https://picsum.photos/400/690" alt="User story image">
+            <div class="progress-bar-empty">
+                <div class="progress-value"></div>
+            </div>
+            <p class="story-contact">
+                <img src="img/rootUser.jpg" class="img-fluid story-picture" id="STORY_PIC_SWAP" alt="Profile picture">
+                <span class="STORY_USERNAME">Jenya Ivanov</span>
+                <span class="STORY_TIME">9m</span>
+                <span class="STORY-ICONS">
+                    <i class="fas fa-ellipsis-h STORY-ICONS-DOTS"></i>
+                    <i class="fas fa-times" id="STORY_CLOSE_BTN"></i>
+                </span>
+            </p>
+        </div>
+
+        <div class="story-comment">
+            <label>
+                <input type="text" class="" placeholder="  Send Message">
+            </label>
+            <i class="far fa-paper-plane ms-3"></i>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- MDB -->
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
+></script>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js"   integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+
+<!-- Javascript -->
+<script src="script.js"></script>
+
+</body>
+</html>
