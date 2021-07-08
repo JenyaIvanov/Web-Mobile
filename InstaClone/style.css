@@ -1,0 +1,474 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* -~-~-~ Navbar ~-~-~- */
+.shiftView {
+    display: none;
+}
+
+.startView {
+    display: block;
+}
+
+/* -~-~-~ Navbar ~-~-~- */
+
+.navbar-button-css {
+    display: block;
+    float: left;
+
+    font-size: 22px !important;
+    margin-left: 0.6rem;
+
+}
+
+.BIG_HEART {
+    font-size: 100px !important;
+
+    animation: fadeOut ease 1.5s;
+    -webkit-animation: fadeOut ease 1.5s;
+    -moz-animation: fadeOut ease 1.5s;
+    -o-animation: fadeOut ease 1.5s;
+
+}
+@keyframes fadeOut {
+    0% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+        display: none;
+    }
+}
+
+@-moz-keyframes fadeOut {
+    0% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+        display: none;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+        display: none;
+    }
+}
+
+@-o-keyframes fadeOut {
+    0% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+        display: none;
+    }
+}
+
+
+.navbar-container {
+    z-index: 999;
+    background-color: white;
+    outline-style: solid;
+    outline-color: lightgrey;
+    outline-width: 1px;
+    width: 100%;
+    margin-left: -0.8rem;
+    margin-bottom: 0;
+
+}
+
+.navbar {
+    padding-bottom: 25px !important;
+}
+
+/* -~-~-~ Search Box ~-~-~- */
+.searchBox {
+    display: none;
+    z-index: 1;
+    top: 20px;
+    position: sticky;
+}
+
+input.searchBox-bar{
+    font-family: FontAwesome;
+    position: sticky;
+    top: 20px;
+}
+
+.searchBox-bar {
+    border-radius: 10px !important;
+    margin-top: 8px;
+    margin-left: 5px;
+    width: 97% !important;
+}
+
+/* -~-~-~ Stories ~-~-~- */
+
+.user-image-story {
+    border-radius: 50%;
+    width: 20%;
+
+    border: 1.5px solid lightgrey;
+    padding: 3px;
+    background-clip: content-box; /* support: IE9+ */
+    background-color: #ccc;
+
+
+}
+
+.user-image-story-rootUser {
+    border-radius: 50%;
+    width: 20%;
+
+    padding: 3px;
+    background-clip: content-box; /* support: IE9+ */
+    background-color: #ccc;
+
+
+}
+
+
+.instaclone-header {
+    width: 109%;
+    display: inline;
+    margin-bottom: -1.5rem;
+}
+
+.header-icons {
+    margin-left: 28px !important;
+    margin-top: 10px !important;
+}
+
+.story-list {
+    padding-top: 12px;
+    margin-top: 0;
+    list-style-type: none;
+    margin-left: -8px;
+    margin-bottom: 0;
+    background-color: white;
+
+}
+
+.story-list-yourstory {
+    position: relative;
+}
+
+.story-list-addstory {
+    position: absolute;
+    width: 25%;
+    left: 50px;
+    top: 5px;
+
+}
+
+
+.story-list li{
+    margin-left: 0.8rem;
+    display: inline;
+}
+
+.story-list li span {
+    color: black;
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+}
+
+/* -~-~-~ Body / Content ~-~-~- */
+
+.card-profile {
+    margin-bottom: 8px;
+}
+
+.card-profile-options {
+    float: right;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+/* -~ Uploader image ~- */
+.user-image {
+    width: 9%;
+    border: 1.5px solid lightgrey;
+    margin-left: 1rem;
+    border-radius: 50%;
+}
+
+/* -~ Username ~- */
+.card-profile span{
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: 550;
+}
+
+.card-icons {
+    color: black;
+    font-size: 22px !important;
+    margin-top: 3px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+}
+
+.rootUser-comment {
+    margin-left: 1px;
+}
+
+.rootUser-comment-time {
+    margin-top: -5px;
+    color: darkgrey;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.rootUser-comment span {
+    margin-left: 8px;
+    font-weight: lighter;
+    font-size: 14px;
+    color: darkgrey;
+}
+
+.rootUser-comment-pic {
+    padding: 1px;
+    width: 8%;
+    border-radius: 50%;
+}
+
+.card-like-counter {
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.card-title {
+    margin-top: -0.7rem;
+}
+
+.card-sub {
+    margin-top: -0.5rem;
+    margin-left: 5px;
+}
+
+.card-user-img {
+    padding: 0.4rem;
+    margin-left: -2px;
+    width: auto;
+    height: auto;
+    max-width: 350px;
+    max-height: 350px;
+
+}
+
+.card-text {
+    margin-top: -0.9rem;
+    font-size: 14px;
+}
+
+.card-text span.POST_USERNAME {
+    font-weight: 550;
+}
+
+.card {
+    width: 111.9%;
+    border: none;
+    margin-left: -1.1rem;
+}
+
+/* -~-~-~ Explore Tab ~-~-~- */
+
+.lightbox-gallery {
+    margin-top: -38px;
+    margin-bottom: 65px;
+    display: none;
+    color: white;
+    background-color: white;
+    overflow-x: hidden
+}
+
+.lightbox-gallery .photos {
+    background-color: white;
+    width: 110%;
+}
+
+.lightbox-gallery .item {
+    background-color: white;
+    padding: 0.4rem;
+    margin-left: -2px;
+    width: auto;
+    height: auto;
+    max-width: 33%;
+    max-height: 33%;
+}
+
+/* -~-~-~ Contact Tab ~-~-~- */
+.contact-picture {
+    margin-right: 15px;
+    width: 40%;
+    border-radius: 50%;
+    margin-left: 18px;
+
+    border: 1.5px solid lightgrey;
+    padding: 3px;
+    background-clip: content-box; /* support: IE9+ */
+    background-color: #ccc;
+}
+
+.createdby{
+    position: absolute;
+    margin-left: 220px;
+    margin-top: 50px;
+    color: lightgrey;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+.devname{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#contact-container {
+    display: none;
+}
+
+.contact-card {
+    margin-top: -20px;
+    margin-bottom: 348px;
+}
+
+.contact-links {
+    margin-top: -10px;
+}
+
+.contact-body {
+    margin-left: 25px;
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+.contact-icon {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+/* -~-~-~ Story Card ~-~-~- */
+
+.storyView {
+    display: none;
+    margin-top: -50px;
+    margin-bottom: 100px;
+    background-color: black;
+}
+
+.story-card {
+    background-color: black !important;
+}
+
+.story-contact {
+    position: absolute;
+    top: 15px;
+    margin-left: -20px;
+}
+
+.STORY-ICONS {
+    font-size: 20px !important;
+    color: white;
+    margin-left: 140px !important;
+}
+
+.STORY-ICONS-DOTS {
+    font-size: 16px !important;
+    margin-right: 12px;
+}
+
+.STORY_TIME {
+    margin-left: 5px;
+    color: white;
+    font-weight: normal !important;
+    font-size: 12px;
+}
+
+.story-contact img{
+    margin-top: 3px;
+    margin-left: 10px;
+    width: 8%;
+    border-radius: 50%;
+}
+
+.story-contact span{
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+}
+
+.story-body {
+    position: relative;
+    text-align: center;
+    z-index: 0;
+}
+
+.story-img{
+    margin-top: 2px;
+    margin-left: -6px;
+    border-radius: 10px;
+    width: 94%;
+    margin-bottom: 10px;
+}
+
+.story-comment {
+    margin-top: 17px;
+    margin-bottom: 40px;
+}
+
+.story-comment label input {
+    border-radius: 20px;
+    border-color: white;
+    padding: 7px;
+    width: 130%;
+    margin-left: 20px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.story-comment label input:focus {
+    outline-width: 0;
+}
+
+.story-comment i{
+    display: block;
+    margin-top: -33px !important;
+    color: white;
+    font-size: 24px;
+    margin-left: 334px !important;
+}
+
+.progress-value {
+    position: absolute;
+    top: 5px;
+    left: 11px;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation: load 5s normal forwards;
+    box-shadow: 0 10px 40px -10px grey;
+    border-radius: 100px;
+    background: white !important;
+    height: 2px;
+    width: 0;
+}
+
+@keyframes load {
+    0% { width: 0; }
+    100% { width: 93%; }
+}
