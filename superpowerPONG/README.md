@@ -1,5 +1,6 @@
 # superpowerPONG
-An Javascript game side-project created in 2018 by me. All graphics are made of vector shapes and texts using pure Javascript.
+An Javascript game side-project created in 2018 by me. 
+All graphics are made of vector shapes and texts and everything including the game engine is written in pure Javascript.
 
 ## Information:
 Superpower's PONG is my first Javascript project involving a classic PONG game with a twist.
