@@ -1,5 +1,5 @@
 # Calculator
-An Javascript functioning calculator.
+Calculator web-page created using Javascript and HTML to test GitPages.
 
 ## Information:
 Made as an "Hello World" project.
